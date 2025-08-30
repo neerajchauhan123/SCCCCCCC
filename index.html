@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday My Love!</title>
+    <!-- Google Fonts for elegant typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Parisienne&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS for layout -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Link to custom stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gradient-to-br from-purple-200 to-pink-200 text-gray-800 overflow-x-hidden">
+
+    <!-- Romantic background music -->
+    <audio id="bg-music" loop>
+        <!-- IMPORTANT: Replace this with a link to your romantic song -->
+         <source src="tum_ho.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    
+    <!-- Music toggle button, initially hidden -->
+    <button id="music-toggle" class="hidden fixed bottom-5 right-5 z-50 bg-white/70 backdrop-blur-sm text-purple-600 p-3 rounded-full shadow-lg hover:bg-white transition-all duration-300">
+        <!-- Play/Pause icon will be inserted by script.js -->
+    </button>
+    
+    <!-- Main content container -->
+    <div id="main-content" style="opacity: 0; transition: opacity 2s ease-in;">
+        <header class="text-center pt-24 pb-8 relative z-20">
+            <h1 class="text-6xl md:text-8xl font-great-vibes text-pink-500 drop-shadow-lg">Happy Birthday, My Love</h1>
+            <p id="sub-heading" class="text-xl md:text-2xl mt-4 font-playfair text-purple-700 italic">For the one who lights up my world.
+                <br> (Please tap to the Candles)
+            </p>
+        </header>
+
+        <main class="relative">
+            <!-- Cake Section -->
+            <section id="cake-section" class="flex flex-col items-center justify-center min-h-[450px]">
+                <div id="cake-container" class="cake-container">
+                    <div class="plate"></div>
+                    <div class="cake">
+                        <div class="layer layer-top"></div>
+                        <div class="layer layer-middle"></div>
+                        <div class="layer layer-bottom"></div>
+                        <div class="icing">
+                            <div class="drip drip1"></div>
+                            <div class="drip drip2"></div>
+                            <div class="drip drip3"></div>
+                            <div class="drip drip4"></div>
+                        </div>
+                    </div>
+                    <!-- Candles -->
+                    <div class="candle candle1"><div class="flame"></div></div>
+                    <div class="candle candle2"><div class="flame"></div></div>
+                    <div class="candle candle3"><div class="flame"></div></div>
+                    <!-- Cake Slice for Animation -->
+                    <div class="cake-slice">
+                        <div class="slice-layer slice-layer-top"></div>
+                        <div class="slice-layer slice-layer-middle"></div>
+                        <div class="slice-layer slice-layer-bottom"></div>
+                    </div>
+                </div>
+                <p id="blow-text" class="text-lg text-purple-600 mt-4 opacity-0 transition-opacity duration-1000">Click the flames to blow out the candles!</p>
+                <button id="cut-cake-btn" class="hidden mt-6 px-8 py-3 bg-pink-500 text-white font-bold rounded-full shadow-lg hover:bg-pink-600 hover:scale-105 transform transition-all duration-300 text-lg">
+                    Cut the Cake!
+                </button>
+            </section>
+
+            <!-- Message Section - Initially Hidden -->
+            <section id="message-section" class="hidden container mx-auto px-4 py-16 text-center max-w-3xl">
+                <h2 class="text-5xl md:text-7xl font-parisienne text-purple-700 mb-6">To My Beloved Chhavi,</h2>
+                <div class="text-lg md:text-xl font-playfair leading-relaxed text-gray-700 space-y-4">
+                    <p>
+                        First time maine tumhe 11th class me dekha tha… aur us din se hi meri aankhon ne tumhe apna bana liya tha. Tumhara vo gora rang, tumhare golden hair aur woh beautiful brown eyes… abi tak mai khuch Bhool Nahi paya , lagta hai kal ki hi baat hai 💖
+                    </p>
+                    <p>
+                        Mujhe aaj bhi woh din yaad hai – 3rd December, subah 10:33 AM – jab tumhara first message aaya tha. Us waqt mere dil ki happiness words me describe karna mushkil tha. Us moment se meri life ekdum special ban gayi, kyunki usme tum aa gayi thi.
+                    </p>
+                    <p>
+                        Tab se lekar aaj tak, tum meri life ki sabse beautiful feeling ho. Tumhari presence mere liye ek blessing hai, tum meri duniya ho, meri muskaan ho, aur meri jaan ho. 🌹
+                    </p>
+                    <p>
+                        On your special day, main bas itna kehna chahta hoon – Thank you meri life me aane ke liye aur ise itna pyaara banane ke liye. Tum meri smile ki wajah ho aur meri har dua ka answer bhi.
+                    </p>
+                    <p class="font-bold text-pink-500 text-2xl pt-4">
+                        ✨ Happy Birthday meri Jaan 🎂❤️
+                    </p>
+                    <p class="italic">
+                        I love you more than words can ever express… aur hamesha karta rahunga.<br>
+                        Bholenath tumhe Zindgi me sari khushi de , Happy Birthday once again mera Laddu. 🎉🎁<br>
+                        tumhare liye ek choti si poem , I hope you will like it. 😊
+
+                    </p>
+                </div>
+                
+                <!-- Hindi Poem Section -->
+                <div class="font-hindi-poem text-2xl text-purple-800 mt-12 leading-loose">
+                    <p>
+                        मैं अब तक जान न पाया हूँ,<br>
+                        क्यों तुझसे मिलने आया हूँ,<br>
+                        तू मेरे दिल की धड़कन में,<br>
+                        मैं तेरे दर्पण की छाया हूँ।<br>
+                        तू चाहे तो सपना कह ले,<br>
+                        या अनहोनी घटना कह ले,<br>
+                        मैं जिस पथ पर भी चल निकला, तेरे ही दर पर जा बैठा।<br>
+                        मैं तुझसे प्रीत लगा बैठा।
+                    </p>
+                    <p class="mt-8">
+                        मैं उर की पीड़ा सह न सकूँ,<br>
+                        कुछ कहना चाहूँ, कह न सकूँ,<br>
+                        ज्वाला बनकर भी रह न सकूँ,<br>
+                        आँसू बनकर भी बह न सकूँ।<br>
+                        तू चाहे तो रोगी कह ले,<br>
+                        या मतवाला जोगी कह ले,<br>
+                        मैं तुझे याद करते-करते अपना भी होश भुला बैठा।<br>
+                        मैं तुझसे प्रीत लगा बैठा।
+                    </p>
+                </div>
+
+                <p class="text-2xl font-great-vibes text-pink-500 mt-12">- Your Gulgula</p>
+            </section>
+
+            <!-- Gallery Section - Initially Hidden -->
+            <section id="gallery-section" class="hidden container mx-auto px-4 py-16">
+                <h2 class="text-5xl md:text-7xl font-parisienne text-purple-700 text-center mb-12">Again... Happy Birthday Janeman</h2>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
+                    <!-- IMPORTANT: Replace these placeholder images with links to your girlfriend's photos -->
+                    <div class="gallery-item"><img src="image/image2.jpg" alt="Our Memory 1" class="gallery-img"></div>
+                    <div class="gallery-item"><img src="image/image3.jpg" alt="Our Memory 2" class="gallery-img"></div>
+                    <div class="gallery-item"><img src="image/image4.jpg" alt="Our Memory 3" class="gallery-img"></div>
+                    <div class="gallery-item"><img src="image/image8.jpg" alt="Our Memory 4" class="gallery-img"></div>
+                    <div class="gallery-item"><img src="image/image6.jpg" alt="Our Memory 5" class="gallery-img"></div>
+                    <div class="gallery-item"><img src="image/image9.png" alt="Our Memory 6" class="gallery-img"></div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Image Modal -->
+    <div id="image-modal" class="modal">
+        <span id="close-modal" class="close-modal">&times;</span>
+        <img class="modal-content" id="modal-img">
+    </div>
+    
+    <!-- Link to custom script file -->
+    <script src="script.js"></script>
+</body>
+</html>
+

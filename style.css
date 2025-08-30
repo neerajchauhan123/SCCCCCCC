@@ -1,0 +1,279 @@
+body {
+    font-family: 'Playfair Display', serif;
+    overflow-x: hidden;
+    cursor: default;
+}
+
+.font-parisienne { font-family: 'Parisienne', cursive; }
+.font-great-vibes { font-family: 'Great Vibes', cursive; }
+
+.bulb-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    opacity: 0; /* Initially hidden */
+}
+
+.bulb-container.fade-in {
+    opacity: 1;
+    transition: opacity 1.5s ease-in;
+}
+
+.bulb {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    margin: 0 10px;
+    animation: bulb-glow 2s linear infinite;
+    position: relative;
+}
+.bulb::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: 6.5px;
+    width: 2px;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+@keyframes bulb-glow {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.3; transform: scale(0.9); }
+}
+
+/* Cake and Plate Styling - Increased Size */
+.cake-container {
+    position: relative;
+    width: 350px;
+    height: 400px;
+    margin: 40px auto 20px;
+    transform-style: preserve-3d;
+}
+
+.plate {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 350px;
+    height: 20px;
+    background: #f1f1f1;
+    border-radius: 50%;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.cake {
+    position: absolute;
+    width: 260px;
+    height: 240px;
+    left: 50%;
+    bottom: 40px;
+    transform: translateX(-50%);
+}
+
+.layer {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 33.33%;
+    background-size: 50px 100px;
+}
+.layer-top {
+    top: 0;
+    background-color: #f2d7d5; /* Light pink */
+    border-radius: 50% / 20px;
+    z-index: 3;
+    border: 2px solid #c0392b;
+}
+.layer-middle {
+    top: 33.33%;
+    background-color: #8e44ad; /* Purple jam */
+    height: 15%;
+    z-index: 2;
+}
+.layer-bottom {
+    top: 48.33%;
+    height: 51.67%;
+    background-color: #f2d7d5;
+    z-index: 1;
+     border: 2px solid #c0392b;
+     border-top: none;
+}
+
+.icing {
+    position: absolute;
+    top: -5px;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    background: #fff;
+    border-radius: 50%;
+    z-index: 4;
+    border: 2px solid #c0392b;
+}
+.drip {
+    position: absolute;
+    top: 20px;
+    height: 35px;
+    width: 25px;
+    background: #fff;
+    border-radius: 0 0 50% 50%;
+    z-index: 5;
+    border: 2px solid #c0392b;
+    border-top: none;
+}
+.drip1 { left: 40px; }
+.drip2 { left: 110px; height: 50px; }
+.drip3 { left: 180px; }
+.drip4 { right: 40px; height: 40px; }
+
+
+/* Candle and Flame Styling */
+.candle {
+    position: absolute;
+    bottom: 240px; /* on top of larger cake */
+    left: 50%;
+    width: 12px;
+    height: 50px;
+    background: repeating-linear-gradient(-45deg, #fff, #fff 5px, #e74c3c 5px, #e74c3c 10px);
+    border: 1px solid #c0392b;
+    border-radius: 5px 5px 0 0;
+    transform-origin: bottom;
+    z-index: 6;
+}
+.candle1 { transform: translateX(-50px) rotate(-8deg); }
+.candle2 { transform: translateX(0px); height: 60px; bottom: 250px; }
+.candle3 { transform: translateX(50px) rotate(8deg); }
+
+.flame {
+    position: absolute;
+    top: -22px;
+    left: 50%;
+    width: 16px;
+    height: 22px;
+    background-color: #f1c40f;
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    box-shadow: 0 0 15px #f1c40f, 0 0 5px #ffeb3b;
+    animation: flame-dance 1.5s ease-in-out infinite;
+    transform: translateX(-50%);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.flame.out {
+    opacity: 0;
+    transform: translateX(-50%) translateY(20px) scale(0);
+    animation: none;
+}
+@keyframes flame-dance {
+    0%, 100% { transform: translateX(-50%) skewX(0) scaleY(1); }
+    50% { transform: translateX(-45%) skewX(5deg) scaleY(1.05); }
+}
+
+/* Cake Cutting Animation */
+.cake-slice {
+    position: absolute;
+    width: 130px;
+    height: 240px;
+    left: 50%;
+    bottom: 40px;
+    transform: translateX(-50%);
+    visibility: hidden;
+    transition: all 1s ease-in-out;
+    z-index: 20;
+}
+.slice-layer {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 33.33%;
+}
+.slice-layer-top { top: 0; background-color: #f2d7d5; border: 2px solid #c0392b;}
+.slice-layer-middle { top: 33.33%; height: 15%; background-color: #8e44ad; }
+.slice-layer-bottom { top: 48.33%; height: 51.67%; background-color: #f2d7d5; border: 2px solid #c0392b; border-top:none; }
+
+.cake-container.cut .cake {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 0 55%, 50% 50%, 0 45%);
+}
+.cake-container.cut .cake-slice {
+    visibility: visible;
+    transform: translateX(40px) rotate(-15deg);
+}
+
+/* General Animations */
+.fade-in { animation: fadeIn 2s ease-in-out forwards; }
+.fade-in-up { animation: fadeInUp 1.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) forwards; opacity: 0; }
+.delay-1 { animation-delay: 0.5s; }
+.delay-2 { animation-delay: 1s; }
+
+@keyframes fadeIn {
+    from { opacity: 0; } to { opacity: 1; }
+}
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Gallery and Modal */
+.gallery-item {
+    overflow: hidden;
+    border-radius: 0.75rem;
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+}
+.gallery-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    cursor: pointer;
+    transition: transform 0.4s ease-in-out;
+}
+.gallery-img:hover {
+    transform: scale(1.1);
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.9);
+    transition: opacity 0.3s ease;
+}
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    animation: zoom 0.6s;
+}
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+}
+.close-modal:hover,
+.close-modal:focus {
+    color: #bbb;
+}
+
+@keyframes zoom {
+    from { transform: scale(0.1); }
+    to { transform: scale(1); }
+}
+
